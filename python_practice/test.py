@@ -13,7 +13,7 @@ img = qrcode.make('./code.png')
 img.show()
 img.save("qr.png")
 '''
-
+'''
 import qrcode
 
 qr = qrcode.QRCode(
@@ -27,3 +27,4 @@ qr.make(fit=True)
 
 img = qr.make_image(fill_color="black", back_color="white")
 img.show();
+'''
