@@ -113,7 +113,7 @@ for line in f:
 f.close() # 及时关闭
 '''
 
-'''
+
 f = open('f:/python_code/test1.txt', 'r') 
 
 word_dict = {}
@@ -125,5 +125,5 @@ for word in f:
         word_dict[word] = 1
 f.close()
 print(word_dict)
-'''
+
 
