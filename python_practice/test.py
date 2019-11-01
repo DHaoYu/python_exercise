@@ -28,3 +28,24 @@ qr.make(fit=True)
 img = qr.make_image(fill_color="black", back_color="white")
 img.show();
 '''
+
+n = int(input())
+ 
+pre = list(map(int,input().strip().split()))
+ino = list(map(int,input().strip().split()))
+ 
+ 
+def gen(pre, ino):
+     
+    if len(pre)<=1:
+        return pre
+     
+    a = pre[0]
+    idx = ino.index(a)
+     
+    left = gen(pre[1:idx+1], ino[:idx])
+    right = gen(pre[idx+1:], ino[idx+1:])
+     
+    return left+right+[a]
+ 
+print(' '.join([str(i) for i in gen(pre,ino)]))
