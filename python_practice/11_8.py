@@ -135,8 +135,8 @@ class Child(Parent):
 c = Child()
 c.PrintMes()
 p = Parent()
-p.PrintMes()
-print(c.mes)
+p.PrintMes() 
+print(c.mes) 
 print(p.mes)
 '''
 
