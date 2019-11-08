@@ -28,7 +28,7 @@ qr.make(fit=True)
 img = qr.make_image(fill_color="black", back_color="white")
 img.show();
 '''
-
+'''
 n = int(input())
  
 pre = list(map(int,input().strip().split()))
@@ -49,3 +49,11 @@ def gen(pre, ino):
     return left+right+[a]
  
 print(' '.join([str(i) for i in gen(pre,ino)]))
+'''
+
+for i in [1, 2, 3, 4]:
+    if i > 2:
+        print(i)
+        break #直接将for循环跳出了，随之，for else也就不再执行
+else:
+    print(i, '我是else')
