@@ -60,10 +60,19 @@ a = [1, 2, 3, 4, 5]
 result = [i*i for i in a]
 print(result)
 '''
-
+'''
 a = [1, 2, 3, 4, 5]
 b = ['a', 'b', 'c', 'd']
 #a[2:2] = b
 #print(a)
 a[3:] = b
 print(a)
+'''
+
+#lambda
+
+#print(' '.join(input().split(' ')[::-1]))
+s = 'i like bejing.'
+
+print(' '.join(s.split(' ')[::-2])) #第一个' '，join表示把序列拼接成字符串，连接符为空格，
+                                    #splist(' ')表示' '剪切(切片)，[::-1]表示从后往前遍历

@@ -26,7 +26,7 @@ qr.add_data('https://github.com/DHaoYu')
 qr.make(fit=True)
 
 img = qr.make_image(fill_color="black", back_color="white")
-img.show();
+img.show()
 '''
 '''
 n = int(input())
@@ -57,3 +57,5 @@ for i in [1, 2, 3, 4]:
         break #直接将for循环跳出了，随之，for else也就不再执行
 else:
     print(i, '我是else')
+
+print(True + 1)

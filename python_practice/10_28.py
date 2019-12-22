@@ -33,7 +33,7 @@ a.extend(b) #将b拼接到a上,并没有返回对象，只是进行拼接
 print(b)
 print(a)
 '''
-'''
+
 a = ['aaa', 'bbb', 'ccc']
 #result = ''
 #for i in a: #i为a的第一个数据
@@ -42,8 +42,8 @@ a = ['aaa', 'bbb', 'ccc']
 
 result = ''.join(a) #''内部表示拼接的中间的分隔符是什么
 print(result)
-'''
 
+'''
 #序列的切片操作---通过下标进行切片
 a = [1, 2, 3, 4, 5, 6]
 
@@ -62,7 +62,7 @@ b = [1, 2, 3, 4]
 print(''.join(sorted(a))) #将序列组合成为一个字符串
 print(''.join(str(b))) #将序列组合成为一个字符串
 print(sum(b))
-
+'''
 '''
 a = [1, 2, 3, 4]
 
