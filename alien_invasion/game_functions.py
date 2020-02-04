@@ -26,7 +26,22 @@ def check_keyup_events(event, ship):
     elif event.key == pygame.K_ESCAPE:
         sys.exit()
 
-def check_events(ai_settings, screen, ship, bullets):
+def check_play_botton(stats, play_button, mouse_x, mouse_y, aliens, bullets, ship):
+    """每次单机play按钮时开始游戏"""
+    #在每次游戏结束后单机play都会重新开始
+    button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)
+    if button_clicked and not stats.game_active:
+        #隐藏光标
+        pygame.mouse.set_visible(False)
+        #重置所有游戏信息至最开始
+        stats.reset_stats()
+        stats.game_active = True
+        #清空子弹和外星人
+        aliens.empty()
+        bullets.empty()
+        ship.center_ship()
+
+def check_events(ai_settings, screen, ship, bullets, aliens, stats, play_button):
     """监视键盘和鼠标事件"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  
@@ -35,6 +50,9 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keydown_events(event, ai_settings, screen, ship, bullets)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            check_play_botton(stats, play_button, mouse_x, mouse_y, aliens, bullets, ship)
 
 def create_fleet(ai_settings, screen, aliens):
     """创建外星人群"""
@@ -95,7 +113,9 @@ def ship_hit(stats, ship, aliens, bullets):
         #暂停0.5秒
         sleep(0.5)
     else:
+        #将flags信息调整为最初状态
         stats.game_active = False
+        pygame.mouse.set_visible(True)
 
 def check_aliens_bottom(stats, ship, aliens, bullets, screen):
     """检查是否有外星人到达屏幕底端"""
@@ -117,7 +137,13 @@ def check_hit(ai_settings, screen, aliens, bullets):
         bullets.empty()
         create_fleet(ai_settings, screen, aliens)
 
-def update_screen(ai_settings, screen, ship, aliens, bullets):
+def check_button_active(stats, paly_button):
+    """检查是否为最开始 开始按钮是否应该存在"""
+    if not stats.game_active:
+        paly_button.draw_button()
+
+
+def update_screen(ai_settings, screen, ship, aliens, bullets, stats, paly_button):
     """用于每次循环时将屏幕上的图像进行更新"""
     screen.fill(ai_settings.bg_color)
 
@@ -130,5 +156,8 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
             bullets.remove(bullet)
     ship.blitme()
     aliens.draw(screen)
+
+    #检查是否为最开始
+    check_button_active(stats, paly_button)
 
     pygame.display.flip()#刷新屏幕
