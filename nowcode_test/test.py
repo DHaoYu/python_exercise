@@ -113,7 +113,7 @@ for c in str:
 print("英文字母= %d 个,空格= %d 个,数字= %d 个,其他= %d 个"
       %(alpha,space,digit,others))
 '''
-
+'''
 a_set=[1,2,3,4]
 for i in a_set:
     for j in a_set:
@@ -121,3 +121,87 @@ for i in a_set:
             if i != j and i!=k and j!=k:
                 print(i,j,k,end=',  ')
     print('\n')
+'''
+'''
+lst=[1,2,9,12,18,24,39,89]
+print("原始数组是：", "\n", lst)
+lst.append(int(input("请输入一个新的数：")))
+lst.sort()
+print("插入新数后的数组是：", "\n", lst)
+'''
+'''
+a=input("请输入一个5位的数：")
+if a[0]==a[4]:
+    if a[1]==a[3]:
+        print(a,"是一个回文数")
+    else:
+        print(a,"不是一个回文数")
+else:
+    print(a,"不是一个回文数")
+'''
+'''
+a=int(input("请输入一个正整数："))
+for i in range(2,a):
+    if a%i==0:
+        print(a,"不是素数")
+        break
+else:
+    print(a,"是素数")
+'''
+'''
+for x in range(0,100):
+    for y in range(0,100):
+        if 5*x+3*y==100:
+            z=100-x-y
+            print("大马有%d匹，中马有%d匹，小马有%d匹" % (x,y,z))
+'''
+
+#print(input("请输入字符串：")[::2])
+'''
+import string
+import random
+
+lst = []
+while len(lst) < 15 :
+    a = string.ascii_letters
+    random_letter = random.choice(a)
+    if (random_letter not in lst) :
+        lst.append(random_letter)
+    else:
+        continue
+
+print(lst)
+'''
+'''
+import random
+
+s = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+
+"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+
+"0","1","2","3","4","5","6","7","8","9","@","$","#","&","_","~"]
+
+for i in range(15):
+    for i in range(10):
+        print (random.choice(s),end="")
+
+    print("\n")
+'''
+'''
+s = input("please enter string:")
+num=0
+
+for i in s:
+    if i in ['a', 'A','e','E','i','I','o','O','u','U']:
+        num+=1
+print(num)
+'''
+x = ['13915556234','13025621456','15325645124','15202362459']
+a = '456789'
+b = '01289'
+for i in x :
+    if i[:2]=='13' and i[2] in a:
+        print(i,'yes')
+    elif i[:2]=='15' and i[2] in b:
+         print(i,'yes')
+    else:  print(i,'no')
